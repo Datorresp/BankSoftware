@@ -3,8 +3,8 @@ package dataStructure;
 
 public class Queue<T> {
 
-    private QueueNode<T> primero;
-    private QueueNode<T> ultimo;
+    private Node<T> primero;
+    private Node<T> ultimo;
     private int size;
 
     public Queue() {
@@ -14,11 +14,11 @@ public class Queue<T> {
     }
 
     public void encolar(T elemento) {
-        QueueNode<T> newNode = new QueueNode<>(elemento);
+        Node<T> newNode = new Node<>(elemento);
         if (ultimo == null) {
             primero = newNode;
         }else{
-            QueueNode<T> temp = ultimo;
+            Node<T> temp = ultimo;
             newNode.setSiguiente(temp);
             temp.setAnterior(newNode);
         }
@@ -27,7 +27,7 @@ public class Queue<T> {
     }
 
     public T desencolar() {
-        QueueNode<T> temp = primero;
+        Node<T> temp = primero;
         if (temp !=null) {
             primero = primero.getAnterior();
             size -= 1;
@@ -36,7 +36,7 @@ public class Queue<T> {
         return null;
     }
 
-    public QueueNode<T> mostrar() {
+    public Node<T> mostrar() {
         return primero;
     }
 

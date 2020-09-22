@@ -1,11 +1,11 @@
 package dataStructure;
 
-public class QueueNode<T>  {
+public class Node<T>  {
     private T dato;
-    private QueueNode<T> siguiente;
-    private QueueNode<T> anterior;
+    private Node<T> siguiente;
+    private Node<T> anterior;
 
-    public QueueNode(T dato) {
+    public Node(T dato) {
         this.dato = dato;
     }
 
@@ -17,19 +17,19 @@ public class QueueNode<T>  {
         this.dato = dato;
     }
 
-    public QueueNode<T> getSiguiente() {
+    public Node<T> getSiguiente() {
         return siguiente;
     }
 
-    public void setSiguiente(QueueNode<T> siguiente) {
+    public void setSiguiente(Node<T> siguiente) {
         this.siguiente = siguiente;
     }
 
-    public QueueNode<T> getAnterior() {
+    public Node<T> getAnterior() {
         return anterior;
     }
 
-    public void setAnterior(QueueNode<T> anterior) {
+    public void setAnterior(Node<T> anterior) {
         this.anterior = anterior;
     }
 }
