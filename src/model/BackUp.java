@@ -1,22 +1,24 @@
 package model;
 
+import dataStructure.QueueNode;
+
 public class BackUp<T>  {
 
-    private Node<T> stack;
+    private QueueNode<T> stack;
 
     public BackUp() {
         stack = null;
     }
 
     public void apilar(T elemento) {
-        Node<T> node = new Node<>(elemento);
+        QueueNode<T> node = new QueueNode<>(elemento);
         node.setSiguiente(stack);
         stack.setAnterior(node);
         stack = node;
     }
 
     public T desapilar() {
-        Node<T> temp = stack;
+        QueueNode<T> temp = stack;
         stack = stack.getSiguiente();
         stack.setAnterior(null);
         return temp.getDato();

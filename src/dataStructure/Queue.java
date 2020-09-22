@@ -1,23 +1,24 @@
-package model;
+package dataStructure;
 
-public class Line<T> {
 
-    private Node<T> primero;
-    private Node<T> ultimo;
+public class Queue<T> {
+
+    private QueueNode<T> primero;
+    private QueueNode<T> ultimo;
     private int size;
 
-    public Line() {
+    public Queue() {
         primero = null;
         ultimo = null;
         size  = 0;
     }
 
     public void encolar(T elemento) {
-        Node<T> newNode = new Node<>(elemento);
+        QueueNode<T> newNode = new QueueNode<>(elemento);
         if (ultimo == null) {
             primero = newNode;
         }else{
-            Node<T> temp = ultimo;
+            QueueNode<T> temp = ultimo;
             newNode.setSiguiente(temp);
             temp.setAnterior(newNode);
         }
@@ -26,7 +27,7 @@ public class Line<T> {
     }
 
     public T desencolar() {
-        Node<T> temp = primero;
+        QueueNode<T> temp = primero;
         if (temp !=null) {
             primero = primero.getAnterior();
             size -= 1;
@@ -35,7 +36,7 @@ public class Line<T> {
         return null;
     }
 
-    public Node<T> mostrar() {
+    public QueueNode<T> mostrar() {
         return primero;
     }
 
