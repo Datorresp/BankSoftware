@@ -1,6 +1,6 @@
 package dataStructure;
 
-public class Satck <E> implements StackInterface <E>{
+public class Stack <E> implements StackInterface <E>{
 
 	private Node <E> top;
 	private int size;
