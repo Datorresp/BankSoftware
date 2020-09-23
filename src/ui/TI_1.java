@@ -1,5 +1,9 @@
 package ui;
-
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 /**
  *
  * @author diegoa.torres
@@ -7,13 +11,21 @@ package ui;
  * @author Isabella
  *
  */
-public class TI_1 {
+public class TI_1 extends Application{
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Bank.fxml"));     
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        launch(args);
     }
     
 }
