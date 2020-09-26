@@ -13,7 +13,7 @@ public class ActiveClient extends Client{
 
     public ActiveClient(BankAccount account, String name, String id, String phone, String address) {
         super(name, id, phone, address);
-        this.account = account;
+        account = new BankAccount();
     }
 
     public BankAccount getAccount() {
