@@ -51,7 +51,7 @@ public class ActiveClient extends Client{
         account.deleteCard(cardId);
     }
     
-    public void payCardCash(int cardId, long amount) throws Exception,PayedException,IDException{
+    public void payCardCash(int cardId, long amount) throws Exception,PayedException,IDException, PayException{
         
         account.payCardCash(cardId, amount);
     }
