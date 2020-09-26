@@ -1,10 +1,10 @@
-package model;
+package exceptions;
 
 /**
  *
  * @author diegoa.torres
  */
-class IDException extends Exception {
+public class IDException extends Exception {
 
     public IDException(){
         

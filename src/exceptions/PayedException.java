@@ -1,10 +1,10 @@
-package model;
+package exceptions;
 
 /**
  *
  * @author diegoa.torres
  */
-class PayedException extends Exception {
+public class PayedException extends Exception {
 
     public PayedException() {
         super("THIS CREDIT CARD IS ALREADY PAYED");

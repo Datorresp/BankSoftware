@@ -1,10 +1,10 @@
-package model;
+package exceptions;
 
 /**
  *
  * @author diegoa.torres
  */
-class insufficientFundsException extends Exception {
+public class insufficientFundsException extends Exception {
 
     public insufficientFundsException() {
         

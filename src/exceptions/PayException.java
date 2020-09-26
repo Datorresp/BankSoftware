@@ -1,12 +1,12 @@
-package model;
+package exceptions;
 
 /**
  *
  * @author diegoa.torres
  */
-class DebitException extends Exception {
+public class PayException extends Exception {
     
-    public DebitException() {
+    public PayException() {
         super("DEBIT CARDS MUST NOT BE PAID");
         
     }

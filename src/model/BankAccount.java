@@ -1,6 +1,12 @@
 package model;
 
+import exceptions.PayedException;
+import exceptions.insufficientFundsException;
+import exceptions.PayException;
+import exceptions.IDException;
+import exceptions.CreditException;
 import dataStructure.Stack;
+import exceptions.DebitException;
 import java.util.ArrayList;
 
 /**
@@ -41,7 +47,7 @@ public class BankAccount {
           
     }
     
-    public void payCardCash(int cardId, long amount) throws DebitException,PayedException,IDException{
+    public void payCardCash(int cardId, long amount) throws PayException,PayedException,IDException{
         
         int i = findCard(cardId);
         Card aux = null;
@@ -79,7 +85,7 @@ public class BankAccount {
                 }
             }else{
 
-                throw new DebitException();
+                throw new PayException();
             }
         }else{
             
@@ -88,7 +94,7 @@ public class BankAccount {
         
     }
     
-    public void payCardDebit(int cardId, int cardDebitId, long amount) throws DebitException,PayedException,IDException,insufficientFundsException,CreditException{
+    public void payCardDebit(int cardId, int cardDebitId, long amount) throws PayException,PayedException,IDException,insufficientFundsException,CreditException{
         
         int i = findCard(cardId);
         int j = findCard(cardDebitId);
@@ -140,7 +146,7 @@ public class BankAccount {
                 }
             }else{
                 
-                throw new DebitException();
+                throw new PayException();
             }            
         }else{
             
@@ -148,6 +154,90 @@ public class BankAccount {
         }
     }
     
+    public void withdraw(int cardId, long amount) throws IDException, insufficientFundsException, DebitException{
+        
+        int i = findCard(cardId);
+        Card debit = null;
+        
+        try {
+
+            debit = cards.get(i);
+            
+        } catch (IndexOutOfBoundsException e) {
+            
+            throw  new IDException();
+        }
+        
+        if (debit != null) {
+            
+            if (debit.getType() == 2) {
+                
+                if (debit.getAmount() >= amount) {
+                    
+                    debit.setAmount(debit.getAmount() - amount);
+                    System.out.println("YOUR BALANCE IN THE DEBIT CARD: " + debit.getId() + " IS: " + debit.getAmount() + " " + debit.getDivise());                    
+                }else{
+                    
+                    throw new insufficientFundsException();
+                    
+                }
+            }else{
+                
+                throw new DebitException();
+            }
+        }else{
+            
+            throw new IDException();
+        }        
+    }
+    
+    public void deposit(int cardId, long amount) throws IDException, DebitException{
+        
+        int i = findCard(cardId);
+        Card debit = null;
+        
+        try {
+
+            debit = cards.get(i);
+            
+        } catch (IndexOutOfBoundsException e) {
+            
+            throw  new IDException();
+        }
+        
+        if (debit != null) {
+            
+            if (debit.getType() == 2) {
+                
+                debit.setAmount(debit.getAmount()+amount);
+            }else{
+                
+                throw new DebitException();
+            }
+        }else{
+            
+            throw new IDException();
+        }
+    }
+    
+    public String showCards(){
+        
+        String msj = "";
+        
+        for (int i = 0; i < cards.size(); i++) {
+            
+            msj += cards.get(i).toString() + '\n';
+        }
+        
+        if (msj.equals("")) {
+            
+            msj += "YOU DON'T HAVE ANY CARD";
+        }
+        
+        return msj;
+    }
+    
+ 
     public int findCard(int cardId){
         
         boolean found = false;

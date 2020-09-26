@@ -61,7 +61,9 @@ public class Card {
     public void setDivise(String divise) {
         this.divise = divise;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Card{" + "type=" + type + ", id=" + id + ", amount=" + amount + ", Payed=" + Payed + ", divise=" + divise + '}';
+    }              
 }
