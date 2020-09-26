@@ -1,23 +1,14 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Client {
 
-    private String name;
-    private String id;
-    private String BankAccount;
-    private ArrayList<String> creditDebitCards;
-    private Date paymentDay;
-    private Date dateOfAdmission;
+    private String name, id, phone, address;
 
-    private BackUp<Client> backUp;
-
-    public Client(String name, String id) {
+    public Client(String name, String id, String phone, String address) {
         this.name = name;
         this.id = id;
-
+        this.phone = phone;
+        this.address = address;
     }
 
     public String getName() {
@@ -36,47 +27,25 @@ public class Client {
         this.id = id;
     }
 
-    public String getBankAccount() {
-        return BankAccount;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setBankAccount(String bankAccount) {
-        BankAccount = bankAccount;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public ArrayList<String> getCreditDebitCards() {
-        return creditDebitCards;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCreditDebitCards(ArrayList<String> creditDebitCards) {
-        this.creditDebitCards = creditDebitCards;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Date getPaymentDay() {
-        return paymentDay;
+    @Override
+    public String toString() {
+        return "Client{" + "name=" + name + ", id=" + id + ", phone=" + phone + ", address=" + address + '}';
     }
-
-    public void setPaymentDay(Date paymentDay) {
-        this.paymentDay = paymentDay;
-    }
-
-    public Date getDateOfAdmission() {
-        return dateOfAdmission;
-    }
-
-    public void setDateOfAdmission(Date dateOfAdmission) {
-        this.dateOfAdmission = dateOfAdmission;
-    }
-
-    public BackUp<Client> getBackUp() {
-        return backUp;
-    }
-
-    public void setBackUp(BackUp<Client> backUp) {
-        this.backUp = backUp;
-    }
-
-    public void makeBackUp() {
-        backUp.apilar(this);
-    }
+     
 }

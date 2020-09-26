@@ -8,9 +8,9 @@ public class Bank {
     private Queue<Client> queue1;
     private Queue<Client> queue2;
 
-    private ArrayList<CurrentClients> current;
+    private ArrayList<ActiveClient> current;
 
-    private ArrayList<BankDeserters> deserters;
+    private ArrayList<InactiveClient> deserters;
 
     public Bank() {
         queue1 = new Queue<>();

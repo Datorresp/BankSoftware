@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
  *
  * @author diegoa.torres
  */
-public class Controller implements Initializable{
+public class MenuController implements Initializable{
     
     @FXML
     private Button filas;
