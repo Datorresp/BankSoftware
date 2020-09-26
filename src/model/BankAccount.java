@@ -18,9 +18,9 @@ public class BankAccount {
     private ArrayList<Card> cards;
     private Stack<BankAccount>backUp;
 
-    public BankAccount(ArrayList<Card> cards, Stack<BankAccount> backUp) {
-        this.cards = cards;
-        this.backUp = backUp;
+    public BankAccount() {
+        cards = new ArrayList<>();
+        backUp = new Stack<>();
     }
     
     public void addToBackUp(BankAccount newBA){
@@ -57,7 +57,7 @@ public class BankAccount {
             
         } catch (IndexOutOfBoundsException e) {
             
-            throw  new IDException();
+            throw  new IDException("CREDIT CARD");
         }
                 
         if (aux != null) {
@@ -89,7 +89,7 @@ public class BankAccount {
             }
         }else{
             
-            throw new IDException();
+            throw new IDException("CREDIT CARD");
         }
         
     }
@@ -108,7 +108,7 @@ public class BankAccount {
             
         } catch (IndexOutOfBoundsException e) {
             
-            throw  new IDException();
+            throw  new IDException("CREDIT OR DEBIT CARD");
         }
         
         if (credit != null && debit != null) {
@@ -150,7 +150,7 @@ public class BankAccount {
             }            
         }else{
             
-            throw new IDException();
+            throw new IDException("CREDIT OR DEBIT CARD");
         }
     }
     
@@ -165,7 +165,7 @@ public class BankAccount {
             
         } catch (IndexOutOfBoundsException e) {
             
-            throw  new IDException();
+            throw  new IDException("DEBIT CARD");
         }
         
         if (debit != null) {
@@ -187,7 +187,7 @@ public class BankAccount {
             }
         }else{
             
-            throw new IDException();
+            throw new IDException("DEBIT CARD");
         }        
     }
     
@@ -202,7 +202,7 @@ public class BankAccount {
             
         } catch (IndexOutOfBoundsException e) {
             
-            throw  new IDException();
+            throw  new IDException("DEBIT CARD");
         }
         
         if (debit != null) {
@@ -216,7 +216,7 @@ public class BankAccount {
             }
         }else{
             
-            throw new IDException();
+            throw new IDException("DEBIT CARD");
         }
     }
     

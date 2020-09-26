@@ -6,8 +6,8 @@ package exceptions;
  */
 public class IDException extends Exception {
 
-    public IDException(){
+    public IDException(String object){
         
-        super("THIS CREDIT CARD DOESN'T EXIST");
+        super("THIS" + object +"  DOESN'T EXIST");
     }
 }

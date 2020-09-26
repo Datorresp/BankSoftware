@@ -1,6 +1,5 @@
 package model;
 
-import exceptions.PayException;
 import exceptions.CreditException;
 import exceptions.DebitException;
 import exceptions.PayException;
@@ -69,6 +68,16 @@ public class ActiveClient extends Client{
     public void deposit(int cardId, long amount) throws IDException, DebitException{
         
         account.deposit(cardId, amount);
+    }
+
+    @Override
+    public String toString() {
+        return "ActiveClient{" + "account=" + account + '}';
+    }
+    
+    public String showClientInfo(){
+        
+        return super.toString() + '\n';
     }
 
 }

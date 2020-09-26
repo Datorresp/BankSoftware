@@ -13,7 +13,7 @@ public class Queue<T> {
         size  = 0;
     }
 
-    public void encolar(T elemento) {
+    public void add(T elemento) {
         Node<T> newNode = new Node<>(elemento);
         if (ultimo == null) {
             primero = newNode;
@@ -26,7 +26,7 @@ public class Queue<T> {
         size += 1;
     }
 
-    public T desencolar() {
+    public T delete() {
         Node<T> temp = primero;
         if (temp !=null) {
             primero = primero.getAnterior();
@@ -36,7 +36,7 @@ public class Queue<T> {
         return null;
     }
 
-    public Node<T> mostrar() {
+    public Node<T> peek() {
         return primero;
     }
 
