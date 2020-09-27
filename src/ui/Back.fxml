@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="817.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="194.0" layoutX="181.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/redBackGround.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="102.0" fitWidth="194.0" layoutX="362.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/redBackGround.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="102.0" fitWidth="194.0" layoutX="543.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/redBackGround.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="392.0" layoutX="239.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/Captura%20de%20Pantalla%202020-09-22%20a%20la(s)%2010.34.07%20p.%C2%A0m..png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="112.0" fitWidth="181.0" layoutX="636.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/redBackGround.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="102.0" fitWidth="194.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/redBackGround.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="147.0" fitWidth="153.0" layoutX="17.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/bank.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="684.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/money.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="IVLines1" fitHeight="216.0" fitWidth="297.0" layoutY="237.0" onMouseClicked="#lines" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/turno.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="IVUsers1" fitHeight="176.0" fitWidth="181.0" layoutX="321.0" layoutY="257.0" onMouseClicked="#users" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/usuarios.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="IVOperations1" fitHeight="210.0" fitWidth="215.0" layoutX="566.0" layoutY="240.0" onMouseClicked="#operations" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/carjero.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="14.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select an option:">
+               <font>
+                  <Font name="Arial" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="119.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINES">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="395.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USERS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="606.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OPERATIONS">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

@@ -11,14 +11,14 @@ import javafx.stage.Stage;
  * @author Isabella
  *
  */
-public class Main extends Application{
-    
-    
-            
+public class TI_1 extends Application{
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Bank.fxml"));     
-        Scene scene = new Scene(root);
+        FXMLLoader root = new FXMLLoader(getClass().getResource("Back.fxml"));
+        root.setController(new ControllerMenu());
+        Parent p =  root.load();
+        Scene scene = new Scene(p);
         stage.setScene(scene);
         stage.show();
     }
