@@ -3,30 +3,30 @@ package dataStructure;
 
 public class Queue<E> implements QueueInterface<E>{
 
-    private Node<E> front;
-    private Node<E> back;
+    private Node<E> head;
+    private Node<E> tail;
     private int size;
 
     public Queue() {
-        front = null;
-        back = null;
+        head = null;
+        tail = null;
         size  = 0;
     }
 
-    public Node<E> getFront() {
-        return front;
+    public Node<E> getHead() {
+        return head;
     }
 
-    public void setFront(Node<E> front) {
-        this.front = front;
+    public void setHead(Node<E> head) {
+        this.head = head;
     }
 
-    public Node<E> getBack() {
-        return back;
+    public Node<E> getTail() {
+        return tail;
     }
 
-    public void setBack(Node<E> back) {
-        this.back = back;
+    public void setTail(Node<E> tail) {
+        this.tail = tail;
     }
 
     public int getSize() {
@@ -36,41 +36,65 @@ public class Queue<E> implements QueueInterface<E>{
     public void setSize(int size) {
         this.size = size;
     }
-    
 
     @Override
     public void offer(E newE) {
+             
+        Node<E> newNode = new Node<>(newE);
         
-        
-        if (back != null) {
+        if (head == null) {
             
+            head = newNode;
+            tail = newNode;
+        }else{
             
+            tail.setNext(newNode);
+            tail = newNode;
         }
+        
+        size++;
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return head == null;
     }
 
     @Override
     public E peek() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        if (head != null) {
+            
+            return head.getType();
+        }else{
+            
+            return null;
+        }
     }
 
     @Override
     public E poll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        E dev = null;
+        if (head != null) {
+            
+            dev = head.getType();
+            head = head.getNext();
+        }
+       
+        return dev;
     }
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return size;
     }
 
     
