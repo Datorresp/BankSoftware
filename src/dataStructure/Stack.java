@@ -11,8 +11,8 @@ public class Stack <E> implements StackInterface <E>{
 		Node <E> apilar = new Node <E> (newE);
 		
 		if(top != null) {
-			apilar.setSiguiente(top);
-			top.setAnterior(apilar);
+			apilar.setNext(top);
+			top.setPrev(apilar);
 			size++;
 		}
 		setTop(apilar);
@@ -37,7 +37,7 @@ public class Stack <E> implements StackInterface <E>{
 		
 		E topValue = null;
 		if (top != null) {
-			topValue = top.getDato();
+			topValue = top.getType();
 			
 		}
 		
@@ -50,11 +50,11 @@ public class Stack <E> implements StackInterface <E>{
 		E delete = null;
 		
 		if (top != null) {
-			delete = top.getDato();
-			Node<E> second = top.getSiguiente();
+			delete = top.getType();
+			Node<E> second = top.getNext();
 			
 			if (second != null) {
-				second.setAnterior(null);
+				second.setPrev(null);
 				
 			}
 			setTop(second);

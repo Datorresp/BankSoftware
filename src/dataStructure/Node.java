@@ -1,35 +1,38 @@
 package dataStructure;
 
-public class Node<T>  {
-    private T dato;
-    private Node<T> siguiente;
-    private Node<T> anterior;
+public class Node<E>  {
+    
+    private E type;
+    private Node<E> next;
+    private Node<E> prev;
 
-    public Node(T dato) {
-        this.dato = dato;
+    public Node(E type) {
+        this.type = type;
+        next = null;
+        prev = null;
     }
 
-    public T getDato() {
-        return dato;
+    public E getType() {
+        return type;
     }
 
-    public void setDato(T dato) {
-        this.dato = dato;
+    public void setType(E type) {
+        this.type = type;
     }
 
-    public Node<T> getSiguiente() {
-        return siguiente;
+    public Node<E> getNext() {
+        return next;
     }
 
-    public void setSiguiente(Node<T> siguiente) {
-        this.siguiente = siguiente;
+    public void setNext(Node<E> next) {
+        this.next = next;
     }
 
-    public Node<T> getAnterior() {
-        return anterior;
+    public Node<E> getPrev() {
+        return prev;
     }
 
-    public void setAnterior(Node<T> anterior) {
-        this.anterior = anterior;
+    public void setPrev(Node<E> prev) {
+        this.prev = prev;
     }
 }

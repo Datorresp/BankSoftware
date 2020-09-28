@@ -1,46 +1,77 @@
 package dataStructure;
 
 
-public class Queue<T> {
+public class Queue<E> implements QueueInterface<E>{
 
-    private Node<T> primero;
-    private Node<T> ultimo;
+    private Node<E> front;
+    private Node<E> back;
     private int size;
 
     public Queue() {
-        primero = null;
-        ultimo = null;
+        front = null;
+        back = null;
         size  = 0;
     }
 
-    public void add(T elemento) {
-        Node<T> newNode = new Node<>(elemento);
-        if (ultimo == null) {
-            primero = newNode;
-        }else{
-            Node<T> temp = ultimo;
-            newNode.setSiguiente(temp);
-            temp.setAnterior(newNode);
-        }
-        ultimo = newNode;
-        size += 1;
+    public Node<E> getFront() {
+        return front;
     }
 
-    public T delete() {
-        Node<T> temp = primero;
-        if (temp !=null) {
-            primero = primero.getAnterior();
-            size -= 1;
-            return temp.getDato();
-        }
-        return null;
+    public void setFront(Node<E> front) {
+        this.front = front;
     }
 
-    public Node<T> peek() {
-        return primero;
+    public Node<E> getBack() {
+        return back;
     }
 
-    public int size() {
+    public void setBack(Node<E> back) {
+        this.back = back;
+    }
+
+    public int getSize() {
         return size;
     }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+    
+
+    @Override
+    public void offer(E newE) {
+        
+        
+        if (back != null) {
+            
+            
+        }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E peek() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public E poll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int size() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

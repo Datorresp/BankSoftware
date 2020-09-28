@@ -64,7 +64,7 @@ public class Bank {
         
         if (aux != null) {
             
-            line.add(aux);
+            line.offer(aux);
         }else{
             
             throw new IDException("ACTIVE CLIENT");            
@@ -75,7 +75,7 @@ public class Bank {
         
         if (line.size() >= 1) {
             
-            line.delete();
+            line.poll();
         }else{
             
             System.out.println("NO ONE IN THE LINE");
