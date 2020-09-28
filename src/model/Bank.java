@@ -11,10 +11,10 @@ import exceptions.insufficientFundsException;
 
 public class Bank {
    
-    private Queue<ActiveClient>line;
-    private Queue<ActiveClient>priorityLine;
-    private HashTable <String, ActiveClient> clients;
-    private HashTable <String, ActiveClient> inactiveClients;
+    private final Queue<ActiveClient>line;
+    private final Queue<ActiveClient>priorityLine;
+    private final HashTable <String, ActiveClient> clients;
+    private final HashTable <String, ActiveClient> inactiveClients;
     
     public Bank(){
         

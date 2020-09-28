@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class BankAccount {
 
-    private ArrayList<Card> cards;
-    private Stack<BankAccount>backUp;
+    private final ArrayList<Card> cards;
+    private final Stack<BankAccount>backUp;
 
     public BankAccount() {
         cards = new ArrayList<>();
@@ -39,11 +39,23 @@ public class BankAccount {
         cards.add(newC);
     }
     
-    public void deleteCard(int cardId){
+    public void deleteCard(int cardId) throws IDException{
         
         int i = findCard(cardId);
-        
-        cards.remove(i);
+        Card cardToRemove = cards.get(i);
+        if (cardToRemove != null) {
+            
+            if (cardToRemove.getId() == cardId) {
+                
+                cards.remove(i);
+            }else{
+                
+                throw new IDException("CARD");
+            }
+        }else{
+            
+            throw new IDException("CARD");
+        }
           
     }
     
