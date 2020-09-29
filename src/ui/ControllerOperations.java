@@ -1,6 +1,5 @@
 package ui;
 
-import com.sun.deploy.security.ValidationState;
 import exceptions.IDException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
