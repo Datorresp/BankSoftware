@@ -14,7 +14,7 @@ public class Bank {
     private final GenericsQueue<ActiveClient>line;
     private final GenericsQueue<ActiveClient>priorityLine;
     private final HashTable <String, ActiveClient> clients;
-    private final HashTable <String, ActiveClient> inactiveClients;
+    private final HashTable <String, InactiveClient> inactiveClients;
     
     public Bank(){
         
@@ -24,18 +24,58 @@ public class Bank {
         inactiveClients = new HashTable<>();
     }
     
-    public void addClient(ActiveClient newC){
-        
-        clients.insert(newC.getId(), newC);
-    }
-    
-    public void inactivateClient(String clientId) throws IDException{
+    public void openABankAccount(String clientId, BankAccount newBA) throws IDException{
         
         ActiveClient aux = clients.search(clientId);
         
         if (aux != null) {
             
-            inactiveClients.insert(clientId, aux);
+            aux.openABankAccount(newBA);
+        }else{
+            
+            throw new IDException("ACTIVE CLIENT");            
+        }
+    }
+    
+    public void addToBackUp(String clientId) throws IDException{
+        
+        ActiveClient aux = clients.search(clientId);
+        
+        if (aux != null) {
+            
+            aux.addToBackUp();
+        }else{
+            
+            throw new IDException("ACTIVE CLIENT");            
+        }
+    }
+    
+    public void undo(String clientId) throws IDException{
+       
+        ActiveClient aux = clients.search(clientId);
+        
+        if (aux != null) {
+            
+            aux.undo();
+        }else{
+            
+            throw new IDException("ACTIVE CLIENT");            
+        }
+    }
+    
+    public void addClient(ActiveClient newC){
+        
+        clients.insert(newC.getId(), newC);
+    }
+    
+    public void inactivateClient(String clientId, String cause) throws IDException{
+        
+        ActiveClient aux = clients.search(clientId);
+
+        if (aux != null) {
+            
+            InactiveClient newIC = new InactiveClient(cause , aux.getName(), aux.getId(), aux.getPhone(), aux.getAddress());
+            inactiveClients.insert(newIC.getId(), newIC);
             clients.delete(clientId);
         }else{
             
@@ -54,7 +94,6 @@ public class Bank {
         }else{
             
             throw new IDException("ACTIVE CLIENT");
-
         }
     }
     
