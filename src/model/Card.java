@@ -64,6 +64,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" + "type=" + type + ", id=" + id + ", amount=" + amount + ", Payed=" + Payed + ", divise=" + divise + '}';
+        return "Id Card: " + id + ", Amount: " + amount;
     }              
 }

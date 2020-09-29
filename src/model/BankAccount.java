@@ -238,7 +238,7 @@ public class BankAccount {
         
         for (int i = 0; i < cards.size(); i++) {
             
-            msj += cards.get(i).toString() + '\n';
+            msj += cards.get(i).toString() + ";";
         }
         
         if (msj.equals("")) {
