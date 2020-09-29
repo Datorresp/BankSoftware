@@ -1,12 +1,14 @@
 package ui;
 
+import exceptions.DebitException;
 import exceptions.IDException;
+import exceptions.insufficientFundsException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import model.ActiveClient;
@@ -21,6 +23,11 @@ import java.util.ResourceBundle;
 public class ControllerOperations implements Initializable {
 
     private final ControllerMenu cm;
+
+    private ActiveClient actualClient;
+
+    @FXML
+    private Pane pPanel;
 
     @FXML
     private TextField tfSearch;
@@ -37,6 +44,23 @@ public class ControllerOperations implements Initializable {
     @FXML
     private TextField tfAddId;
 
+    @FXML
+    private ComboBox<String> cbOperations;
+
+    ObservableList<String> olOperations = FXCollections.observableArrayList("Withdraw", "Deposit", "Account Cancellation", "Card payment", "Undo operations");
+
+    //wt
+    @FXML
+    private Label wtLbIdentification;
+
+    @FXML
+    private ComboBox<String> wtCbCards;
+
+    private ObservableList<String> wtOlCards = FXCollections.observableArrayList();
+
+    @FXML
+    private TextField wtTfAmount;
+
 
     public ControllerOperations(ControllerMenu controllerMenu) {
         this.cm = controllerMenu;
@@ -44,7 +68,22 @@ public class ControllerOperations implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        if (wtLbIdentification != null) {
+            wtLbIdentification.setText(actualClient.getId());
+        }
+        if (wtCbCards != null){
+            try {
+                Bank b = cm.getB();
+                String s = b.showCards(actualClient.getId());
+                String[] split = s.split(";");
+                for (int i = 0; i < split.length; i++) {
+                    wtOlCards.add(split[i]);
+                }
+                wtCbCards.setItems(wtOlCards);
+            } catch (IDException e) {
+                e.printStackTrace();
+            }
+        }
     }
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void goBack() throws IOException {
@@ -55,13 +94,16 @@ public class ControllerOperations implements Initializable {
         bp.setCenter(p);
     }
 
-    @SuppressWarnings({"unused", "RedundantSuppression"})
+    // Search
+
+    @SuppressWarnings({"unused", "RedundantSuppression", "OptionalGetWithoutIsPresent"})
     public void searchClient() {
         String sr = tfSearch.getText();
         try {
             Bank b = cm.getB();
-            ActiveClient ac = b.searchActiveClient(sr);
-
+            actualClient = b.searchActiveClient(sr);
+            cbOperations.setDisable(false);
+            cbOperations.setItems(olOperations);
         } catch (IDException e) {
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setTitle(e.toString());
@@ -74,7 +116,43 @@ public class ControllerOperations implements Initializable {
         }
     }
 
-    public void openAddClientView() {
+    @SuppressWarnings({"unused", "RedundantSuppression"})
+    public void openPerspectivesOperations() throws IOException {
+        String s = cbOperations.getValue();
+        if (s.equals("Withdraw")) {
+            FXMLLoader fl = new FXMLLoader(getClass().getResource("Withdraw.fxml"));
+            fl.setController(this);
+            Pane pane = fl.load();
+            pPanel.getChildren().clear();
+            pPanel.getChildren().add(pane);
+        }else if (s.equals("Deposit")) {
+            FXMLLoader fl = new FXMLLoader(getClass().getResource("Deposit.fxml"));
+            fl.setController(this);
+            Pane pane = fl.load();
+            pPanel.getChildren().clear();
+            pPanel.getChildren().add(pane);
+        }else if (s.equals("Account Cancellation")) {
+            FXMLLoader fl = new FXMLLoader(getClass().getResource("AccountCancellation.fxml"));
+            fl.setController(this);
+            Pane pane = fl.load();
+            pPanel.getChildren().clear();
+            pPanel.getChildren().add(pane);
+        }else if (s.equals("Card payment")){
+            FXMLLoader fl = new FXMLLoader(getClass().getResource("CardPayment.fxml"));
+            fl.setController(this);
+            Pane pane = fl.load();
+            pPanel.getChildren().clear();
+            pPanel.getChildren().add(pane);
+        }else if (s.equals("Undo operations")){
+            FXMLLoader fl = new FXMLLoader(getClass().getResource("UndoOperations.fxml"));
+            fl.setController(this);
+            Pane pane = fl.load();
+            pPanel.getChildren().clear();
+            pPanel.getChildren().add(pane);
+        }
+    }
+
+    private void openAddClientView() {
         try {
             BorderPane gp = cm.getBp();
             FXMLLoader fl = new FXMLLoader(getClass().getResource("AddClient.fxml"));
@@ -85,6 +163,8 @@ public class ControllerOperations implements Initializable {
             e.printStackTrace();
         }
     }
+
+    //AddClient
 
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void addNewClient() throws IOException {
@@ -100,8 +180,28 @@ public class ControllerOperations implements Initializable {
             a.setContentText("Something is empty");
             a.showAndWait();
         }else {
-            b.addClient(new ActiveClient(new BankAccount(), name, id, phone, address));
+            b.addClient(new ActiveClient(name, id, phone, address));
             goBack();
+        }
+    }
+
+    //wt
+    @SuppressWarnings({"unused", "RedundantSuppression"})
+    public void withdraw() {
+        try {
+            Bank b = cm.getB();
+            String id = wtLbIdentification.getText();
+            int cardId = Integer.parseInt(wtCbCards.getValue());
+            Long amount = Long.parseLong(wtTfAmount.getText());
+            b.withdraw(id, cardId, amount);
+        } catch (DebitException e) {
+            e.printStackTrace();
+        } catch (insufficientFundsException e) {
+            e.printStackTrace();
+        } catch (IDException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 }
