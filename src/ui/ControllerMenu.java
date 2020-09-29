@@ -5,12 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import model.Bank;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerMenu implements Initializable {
+
+    private final Bank b;
 
     private final ControllerUser controllerUser;
     private final ControllerLines controllerLines;
@@ -23,6 +26,7 @@ public class ControllerMenu implements Initializable {
         controllerLines = new ControllerLines(this);
         controllerUser = new ControllerUser(this);
         controllerOperations = new ControllerOperations(this);
+        b = new Bank();
     }
 
     @Override
@@ -32,6 +36,9 @@ public class ControllerMenu implements Initializable {
 
     public BorderPane getBp() {
         return bp;
+    }
+    public Bank getB() {
+        return b;
     }
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void lines() throws IOException {
