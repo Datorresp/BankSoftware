@@ -79,5 +79,10 @@ public class ActiveClient extends Client{
         
         return super.toString() + '\n';
     }
+    
+    public String showCards(){
+        
+        return account.showCards();
+    }
 
 }

@@ -206,6 +206,19 @@ public class Bank {
         return msj;
     }
     
+    public String showCards(String clientId) throws IDException{
+        
+                ActiveClient aux = clients.search(clientId);
+        
+        if (aux != null) {
+            
+            return aux.showCards();
+        }else{
+            
+            throw new IDException("ACTIVE CLIENT");
+        }  
+    }
+    
     public String showLineStatus(){
         
         return "NORMAL LINE HAS " + line.size() + "AND THE NEXT USER IS: " + line.peek().toString();
