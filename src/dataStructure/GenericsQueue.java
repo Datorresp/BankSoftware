@@ -1,13 +1,13 @@
 package dataStructure;
 
 
-public class Queue<E> implements QueueInterface<E>{
+public class GenericsQueue<E> implements QueueInterface<E>{
 
     private Node<E> head;
     private Node<E> tail;
     private int size;
 
-    public Queue() {
+    public GenericsQueue() {
         head = null;
         tail = null;
         size  = 0;

@@ -1,7 +1,7 @@
 package model;
 
 import dataStructure.HashTable;
-import dataStructure.Queue;
+import dataStructure.GenericsQueue;
 import exceptions.CreditException;
 import exceptions.DebitException;
 import exceptions.IDException;
@@ -11,15 +11,15 @@ import exceptions.insufficientFundsException;
 
 public class Bank {
    
-    private final Queue<ActiveClient>line;
-    private final Queue<ActiveClient>priorityLine;
+    private final GenericsQueue<ActiveClient>line;
+    private final GenericsQueue<ActiveClient>priorityLine;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, ActiveClient> inactiveClients;
     
     public Bank(){
         
-        line = new Queue<>();
-        priorityLine = new Queue<>();
+        line = new GenericsQueue<>();
+        priorityLine = new GenericsQueue<>();
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
     }

@@ -45,7 +45,7 @@ public class ActiveClient extends Client{
         account.addCard(newC);
     }
     
-    public void deleteCard(int cardId){
+    public void deleteCard(int cardId) throws IDException{
         
         account.deleteCard(cardId);
     }
