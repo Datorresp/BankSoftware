@@ -42,13 +42,14 @@ public class GenericsQueue<E> implements QueueInterface<E>{
              
         Node<E> newNode = new Node<>(newE);
         
-        if (head == null) {
-            
-            head = newNode;
-            tail = newNode;
-        }else{
+        if (tail != null) {
             
             tail.setNext(newNode);
+            newNode.setPrev(tail);
+            
+        }else{
+            
+            head = newNode;
             tail = newNode;
         }
         

@@ -1,11 +1,11 @@
 package dataStructure;
 
-public interface QueueInterface <T>{
+public interface QueueInterface <E>{
 	
-    public void offer(T newE);
+    public void offer(E newE);
     public boolean isEmpty();
-    public T peek();
-    public T poll();
+    public E peek();
+    public E poll();
     public void clear();
     public int size();
 

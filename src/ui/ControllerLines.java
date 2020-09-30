@@ -43,4 +43,11 @@ public class ControllerLines implements Initializable {
         Pane p = fl.load();
         bp.setCenter(p);
     }
+    
+    
+        @SuppressWarnings({"unused", "RedundantSuppression"})
+    public void addToLine() {
+
+    }
+    
 }
