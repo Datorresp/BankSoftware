@@ -64,7 +64,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Id Card: " + id + ", Amount: " + amount;
+        return id+"";
     }   
     
     

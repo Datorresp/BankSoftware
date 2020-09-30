@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import model.ActiveClient;
 import model.Bank;
 import model.Card;
+import model.Client;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +50,21 @@ public class ControllerOperations implements Initializable {
     private ComboBox<String> cbOperations;
 
     ObservableList<String> olOperations = FXCollections.observableArrayList("Add New Card","Withdraw", "Deposit", "Account Cancellation", "Card payment", "Undo operations");
+
+    @FXML
+    private CheckBox addDisable;
+
+    @FXML
+    private CheckBox addPregnant;
+
+    @FXML
+    private ComboBox<String> cbAddGender;
+
+    private final ObservableList<String> olAddcbGender = FXCollections.observableArrayList("Man", "Woman");
+
+    @FXML
+    private TextField tfAddAge;
+
 
     //wt
     @FXML
@@ -129,6 +145,9 @@ public class ControllerOperations implements Initializable {
         if (ancCardId != null) {
             ancCardId.setText(cardNumbers +"");
         }
+        if (cbAddGender != null) {
+            cbAddGender.setItems(olAddcbGender);
+        }
     }
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void goBack() throws IOException {
@@ -165,7 +184,7 @@ public class ControllerOperations implements Initializable {
     public void openPerspectivesOperations() throws IOException {
         String s = cbOperations.getValue();
         switch (s) {
-            case "Add Card": {
+            case "Add New Card": {
                 FXMLLoader fl = new FXMLLoader(getClass().getResource("AddNewCard.fxml"));
                 fl.setController(this);
                 Pane pane = fl.load();
@@ -232,21 +251,30 @@ public class ControllerOperations implements Initializable {
 
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void addNewClient() throws IOException {
-        Bank b = cm.getB();
-        String name = tfAddName.getText();
-        String id = tfAddId.getText();
-        String phone = tfAddPhone.getText();
-        String address = tfAddAddress.getText();
-        //pedir disable, pregnant, gender(constante) y age
+        try {
+            Bank b = cm.getB();
+            String name = tfAddName.getText();
+            String id = tfAddId.getText();
+            String phone = tfAddPhone.getText();
+            String address = tfAddAddress.getText();
+            boolean dis = addDisable.isSelected();
+            boolean preg = addPregnant.isSelected();
+            int gender = 0;
+            if (cbAddGender.getValue().equalsIgnoreCase("Man"))
+                gender = Client.MAN;
+            else if (cbAddGender.getValue().equalsIgnoreCase("Woman"))
+                gender = Client.WOMAN;
+            int age = Integer.parseInt(tfAddAge.getText());
 
-        if (name.equals("") || id.equals("") || phone.equals("") || address.equals("")) {
-            Alert a = new Alert(Alert.AlertType.WARNING);
-            a.setTitle("Empty field");
-            a.setContentText("Something is empty");
-            a.showAndWait();
-        }else {
-        //    b.addClient(new ActiveClient(name, id, phone, address, disabled, pregnant, gender, age));
-            goBack();
+            if (name.equals("") || id.equals("") || phone.equals("") || address.equals("")) {
+                alert2();
+            } else {
+                b.addClient(new ActiveClient(name, id, phone, address, dis, preg, gender, age));
+                goBack();
+                System.out.println();
+            }
+        }catch (NumberFormatException e) {
+            alert2();
         }
     }
 
@@ -363,9 +391,12 @@ public class ControllerOperations implements Initializable {
             long amount = Long.parseLong(ancAmount.getText());
             String divise = ancBadge.getText();
             b.addCard(id, new Card(type, amount, true, idCard, divise));
+            goBack();
         } catch (NumberFormatException e) {
             alert2();
         } catch (IDException e) {
+            alert1(e);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
