@@ -16,13 +16,13 @@ public class Bank {
     private final GenericsQueue<ActiveClient>line;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, InactiveClient> inactiveClients;
-    private Heap <Client> priority;
+    private final Heap <Client> priority;
     private ArrayList<ActiveClient> activeClients ;
     
     public Bank(){
         
         line = new GenericsQueue<>();
-
+        priority = new Heap<>(0, 0);
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
         activeClients = new ArrayList<>();
@@ -108,8 +108,8 @@ public class Bank {
         int priorityLevel = 0;
         
         if (aux.isPregnant()) {
-        	priorityLevel ++;
-		}
+            priorityLevel ++;
+            }
         if (aux.isDisabled()) {
 			priorityLevel ++;	
 		}
@@ -198,7 +198,7 @@ public class Bank {
         ActiveClient aux = clients.search(clientId);
         
         if (aux != null) {
-            
+                  
             aux.withdraw(cardId, amount);
         }else{
             

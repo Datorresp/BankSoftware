@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 
-<Pane prefHeight="218.0" prefWidth="775.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane prefHeight="218.0" prefWidth="775.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea fx:id="acTextArea" layoutX="218.0" layoutY="50.0" prefHeight="118.0" prefWidth="362.0" />
+      <Button layoutX="363.0" layoutY="179.0" mnemonicParsing="false" onAction="#inactiveClient" prefHeight="25.0" prefWidth="72.0" text="SEND">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label layoutX="363.0" layoutY="14.0" text="REASON">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
