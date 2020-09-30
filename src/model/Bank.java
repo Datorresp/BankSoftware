@@ -16,7 +16,7 @@ public class Bank {
     private final GenericsQueue<ActiveClient>line;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, InactiveClient> inactiveClients;
-    private Heap <Client> priority;
+    private final Heap <Client> priority;
     private ArrayList<ActiveClient> activeClients ;
     
     public Bank(){

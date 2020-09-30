@@ -61,7 +61,28 @@ public class Heap <E extends Comparable<E>> implements HeapInterface <E>{
 //        elements[heapSize-1] = element;
 //        keys[heapSize-1] = Integer.MIN_VALUE;
 //        increaseKey(heapSize-1, key);
-//    }        
+////    }   
+//        
+//        @SuppressWarnings("unchecked")
+//	@Override
+//	public void reSize() {
+//		int newArraySize;
+//		if (arraysize == 0) {
+//			newArraySize = 1;
+//		} else {
+//			newArraySize = arraysize * 2;
+//		}
+//		E[] tmpE = (E[]) new Comparable[newArraySize];
+//		int[] tmpKeys = new int[newArraySize];
+//		for(int i = 0; i < arraysize; i++) {
+//			tmpE[i] = elements[i];
+//			tmpKeys[i] = keys[i];
+//		}
+//		setElements(tmpE);
+//		setKeys(tmpKeys);
+//		arraysize = newArraySize;
+//	}
+
 	
 	public void swap (int i, int j) {
 		E tmp = array[i];
