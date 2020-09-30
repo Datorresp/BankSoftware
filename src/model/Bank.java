@@ -8,6 +8,7 @@ import exceptions.IDException;
 import exceptions.PayException;
 import exceptions.PayedException;
 import exceptions.insufficientFundsException;
+import java.util.ArrayList;
 
 public class Bank {
    
@@ -15,7 +16,7 @@ public class Bank {
     private final GenericsQueue<ActiveClient>priorityLine;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, InactiveClient> inactiveClients;
-    private ActiveClient[]activeClients;
+    private ArrayList<ActiveClient> activeClients ;
     
     public Bank(){
         
@@ -23,7 +24,7 @@ public class Bank {
         priorityLine = new GenericsQueue<>();
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
-        activeClients = new ActiveClient[1000];
+        activeClients = new ArrayList<>();
     }
     
     public void openABankAccount(String clientId, BankAccount newBA) throws IDException{
@@ -68,13 +69,7 @@ public class Bank {
     public void addClient(ActiveClient newC){
         
         clients.insert(newC.getId(), newC);
-        for (int i = 0; i < activeClients.length; i++) {
-            
-            if (activeClients[i]==null) {
-                
-                activeClients[i]=newC;
-            }
-        }
+        activeClients.add(newC);
     }
     
     public void inactivateClient(String clientId, String cause) throws IDException{
