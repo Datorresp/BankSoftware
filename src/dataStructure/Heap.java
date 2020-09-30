@@ -6,9 +6,6 @@ public class Heap <E extends Comparable<E>> implements HeapInterface <E>{
 	private int heapSize;
 	private E [] array;
 	
-
-
-
 	public Heap(int arraySize, int heapSize) {
 		this.arraySize = arraySize;
 		this.heapSize = heapSize;
@@ -54,6 +51,17 @@ public class Heap <E extends Comparable<E>> implements HeapInterface <E>{
 		}
 	
 	}
+        
+//    public void priorityInsert(int key, E element) throws SmallerKeyException {
+//        
+//        heapSize++;
+//        if(heapSize > arraysize) {
+//                reSize();
+//        }
+//        elements[heapSize-1] = element;
+//        keys[heapSize-1] = Integer.MIN_VALUE;
+//        increaseKey(heapSize-1, key);
+//    }        
 	
 	public void swap (int i, int j) {
 		E tmp = array[i];

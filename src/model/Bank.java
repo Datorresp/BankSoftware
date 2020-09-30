@@ -22,7 +22,7 @@ public class Bank {
     public Bank(){
         
         line = new GenericsQueue<>();
-
+        priority = new Heap<>(0, 0);
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
         activeClients = new ArrayList<>();
@@ -108,8 +108,8 @@ public class Bank {
         int priorityLevel = 0;
         
         if (aux.isPregnant()) {
-        	priorityLevel ++;
-		}
+            priorityLevel ++;
+            }
         if (aux.isDisabled()) {
 			priorityLevel ++;	
 		}
