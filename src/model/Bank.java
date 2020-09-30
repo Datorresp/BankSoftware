@@ -1,6 +1,7 @@
 package model;
 
 import dataStructure.HashTable;
+import dataStructure.Heap;
 import dataStructure.GenericsQueue;
 import exceptions.CreditException;
 import exceptions.DebitException;
@@ -15,6 +16,7 @@ public class Bank {
     private final GenericsQueue<ActiveClient>priorityLine;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, InactiveClient> inactiveClients;
+    private Heap <Client> priority;
     
     public Bank(){
         
@@ -74,7 +76,7 @@ public class Bank {
 
         if (aux != null) {
             
-            InactiveClient newIC = new InactiveClient(cause , aux.getName(), aux.getId(), aux.getPhone(), aux.getAddress());
+            InactiveClient newIC = new InactiveClient(cause , aux.getName(), aux.getId(), aux.getPhone(), aux.getAddress(), aux.isDisabled(), aux.isPregnant(), aux.getGender(), aux.getAge());
             inactiveClients.insert(newIC.getId(), newIC);
             clients.delete(clientId);
         }else{
@@ -100,14 +102,23 @@ public class Bank {
     public void addToLine(String clientId) throws IDException{
         
         ActiveClient aux = clients.search(clientId);
+        int priorityLevel = 0;
         
-        if (aux != null) {
-            
-            line.offer(aux);
-        }else{
-            
-            throw new IDException("ACTIVE CLIENT");            
-        }
+        if (aux.isPregnant()) {
+        	priorityLevel ++;
+		}
+        if (aux.isDisabled()) {
+			priorityLevel ++;	
+		}
+        if (aux.getAge() >= 60) {
+			priorityLevel ++;
+		}
+        if (priorityLevel == 0) {
+			line.offer(aux);
+		}else {
+		//	priority insert priority queue
+		}
+        
     }
     
     public void attendLine(){
@@ -132,6 +143,12 @@ public class Bank {
             
             throw new IDException("ACTIVE CLIENT");
         }
+    }
+    
+    public void heapSortId (Client [] c) {
+    	Heap<Client> c1 = new Heap<Client>(0,0);
+    	c1.setArray(c);
+    	c1.heapSort();
     }
     
     public void deleteCard(String clientId, int cardID) throws IDException{

@@ -7,9 +7,12 @@ public class Heap <E extends Comparable<E>> implements HeapInterface <E>{
 	private E [] array;
 	
 
+
+
 	public Heap(int arraySize, int heapSize) {
 		this.arraySize = arraySize;
 		this.heapSize = heapSize;
+		array = (E[]) new Comparable [arraySize];
 	}
 
 	@Override
@@ -94,5 +97,30 @@ public class Heap <E extends Comparable<E>> implements HeapInterface <E>{
 		
 	}
 	
+	public E[] getArray() {
+		return array;
+	}
 
+	public void setArray(E[] array) {
+		setArraySize(array.length);
+		setHeapSize(array.length);
+		this.array = array;
+	}
+
+	public int getArraySize() {
+		return arraySize;
+	}
+
+	public void setArraySize(int arraySize) {
+		this.arraySize = arraySize;
+	}
+
+	public int getHeapSize() {
+		return heapSize;
+	}
+
+	public void setHeapSize(int heapSize) {
+		this.heapSize = heapSize;
+	}
+	
 }

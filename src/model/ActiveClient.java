@@ -11,8 +11,8 @@ public class ActiveClient extends Client{
 
     private BankAccount account;
 
-    public ActiveClient(String name, String id, String phone, String address) {
-        super(name, id, phone, address);
+    public ActiveClient(String name, String id, String phone, String address, boolean disabled, boolean pregnant, int gender, int age) {
+        super(name, id, phone, address, disabled, pregnant, gender, age);
         this.account = new BankAccount();
     }
 
