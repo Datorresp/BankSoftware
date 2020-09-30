@@ -101,6 +101,10 @@ public class ActiveClient extends Client{
         
         return account.showCards();
     }
+
+    public String showDebitCards() {
+        return account.showDebitCards();
+    }
     
     public long totalMoney(){
         

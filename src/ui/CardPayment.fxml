@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane prefHeight="218.0" prefWidth="775.0" style="-fx-border-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <RadioButton fx:id="cpRbCard" layoutX="388.0" layoutY="28.0" mnemonicParsing="false" onAction="#toggle" text="Card">
@@ -30,7 +29,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="wtCbCards" disable="true" layoutX="388.0" layoutY="62.0" prefHeight="25.0" prefWidth="191.0" />
+      <ComboBox fx:id="wtCbCards1" disable="true" layoutX="388.0" layoutY="62.0" prefHeight="25.0" prefWidth="191.0" />
       <Label alignment="CENTER_RIGHT" layoutX="198.0" layoutY="61.0" prefHeight="27.0" prefWidth="169.0" text="DEBIT CARD">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -47,7 +46,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <ComboBox fx:id="wtCbCards1" layoutX="388.0" layoutY="96.0" prefHeight="25.0" prefWidth="191.0" />
+      <ComboBox fx:id="wtCbCards" layoutX="388.0" layoutY="96.0" prefHeight="25.0" prefWidth="191.0" />
       <Label alignment="CENTER_RIGHT" layoutX="198.0" layoutY="95.0" prefHeight="27.0" prefWidth="169.0" text="CARDS">
          <font>
             <Font name="System Bold" size="18.0" />

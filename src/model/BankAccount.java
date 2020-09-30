@@ -108,8 +108,8 @@ public class BankAccount {
     
     public void payCardDebit(int cardId, int cardDebitId, long amount) throws PayException,PayedException,IDException,insufficientFundsException,CreditException{
         
-        int i = findCard(cardId);
-        int j = findCard(cardDebitId);
+        int i = findCard(cardId) -1 ;
+        int j = findCard(cardDebitId) -1;
         Card credit = null;
         Card debit = null;
         
@@ -205,7 +205,7 @@ public class BankAccount {
     
     public void deposit(int cardId, long amount) throws IDException, DebitException{
         
-        int i = findCard(cardId);
+        int i = findCard(cardId)-1;
         Card debit = null;
         
         try {
@@ -219,9 +219,10 @@ public class BankAccount {
         
         if (debit != null) {
             
-            if (debit.getType() == 2) {
+            if (debit.getType() == 1) {
                 
                 debit.setAmount(debit.getAmount()+amount);
+                System.out.println("YOUR BALANCE IN THE DEBIT CARD: " + debit.getId() + " IS: " + debit.getAmount() + " " + debit.getDivise());
             }else{
                 
                 throw new DebitException();
@@ -246,6 +247,24 @@ public class BankAccount {
             msj += "YOU DON'T HAVE ANY CARD";
         }
         
+        return msj;
+    }
+
+    public String showDebitCards(){
+
+        String msj = "";
+
+        for (int i = 0; i < cards.size(); i++) {
+            if (cards.get(i).getType() == Card.DEBIT) {
+                msj += cards.get(i).toString() + ";";
+            }
+        }
+
+        if (msj.equals("")) {
+
+            msj += "YOU DON'T HAVE ANY CARD";
+        }
+
         return msj;
     }
     

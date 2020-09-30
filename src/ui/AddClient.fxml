@@ -56,15 +56,12 @@
       <TextField fx:id="tfAddId" alignment="CENTER" layoutX="401.0" layoutY="230.0" prefHeight="25.0" prefWidth="233.0" />
       <TextField fx:id="tfAddPhone" alignment="CENTER" layoutX="401.0" layoutY="272.0" prefHeight="25.0" prefWidth="233.0" />
       <TextField fx:id="tfAddAddress" alignment="CENTER" layoutX="401.0" layoutY="313.0" prefHeight="25.0" prefWidth="233.0" />
+      <TextField fx:id="tfAddAge" alignment="CENTER" layoutX="401.0" layoutY="351.0" prefHeight="25.0" prefWidth="233.0" />
       <Label alignment="CENTER" layoutX="227.0" layoutY="270.0" prefHeight="30.0" prefWidth="167.0" text="PHONE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="338.0" layoutY="437.0" mnemonicParsing="false" onAction="#addNewClient" prefHeight="25.0" prefWidth="141.0" text="SAVE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font></Button>
       <Label alignment="CENTER" layoutX="204.0" layoutY="60.0" prefHeight="73.0" prefWidth="409.0" text="ADD CLIENT">
          <font>
             <Font name="System Bold" size="50.0" />
@@ -96,7 +93,10 @@
          </font>
       </CheckBox>
       <ComboBox fx:id="cbAddGender" layoutX="463.0" layoutY="393.0" prefWidth="150.0" promptText="GENDER" />
-      <TextField fx:id="tfAddAge" alignment="CENTER" layoutX="401.0" layoutY="351.0" prefHeight="25.0" prefWidth="233.0" />
+      <Button layoutX="338.0" layoutY="437.0" mnemonicParsing="false" onAction="#addNewClient" prefHeight="25.0" prefWidth="141.0" text="SAVE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
       <Label alignment="CENTER" layoutX="227.0" layoutY="349.0" prefHeight="30.0" prefWidth="167.0" text="AGE">
          <font>
             <Font name="System Bold" size="20.0" />

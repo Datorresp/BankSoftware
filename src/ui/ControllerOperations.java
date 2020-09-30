@@ -103,9 +103,6 @@ public class ControllerOperations implements Initializable {
     private RadioButton ancCredit;
 
     @FXML
-    private TextField ancAmount;
-
-    @FXML
     private TextField ancBadge;
 
 
@@ -134,7 +131,7 @@ public class ControllerOperations implements Initializable {
             try {
                 ObservableList<String> wtOlCards = FXCollections.observableArrayList();
                 Bank b = cm.getB();
-                String s = b.showCards(actualClient.getId());
+                String s = b.showDebitCards(actualClient.getId());
                 String[] split = s.split(";");
                 Collections.addAll(wtOlCards, split);
                 wtCbCards1.setItems(wtOlCards);
@@ -156,6 +153,10 @@ public class ControllerOperations implements Initializable {
         fl.setController(cm);
         Pane p = fl.load();
         bp.setCenter(p);
+    }
+
+    public void clear() {
+        pPanel.getChildren().clear();
     }
 
     // Search
@@ -287,6 +288,7 @@ public class ControllerOperations implements Initializable {
             int cardId = Integer.parseInt(wtCbCards.getValue());
             long amount = Long.parseLong(wtTfAmount.getText());
             b.withdraw(id, cardId, amount);
+            clear();
         } catch (DebitException | insufficientFundsException | IDException e) {
            alert1(e);
         } catch (NumberFormatException e) {
@@ -302,6 +304,7 @@ public class ControllerOperations implements Initializable {
             int cardId = Integer.parseInt(wtCbCards.getValue());
             long amount = Long.parseLong(wtTfAmount.getText());
             b.deposit(id, cardId, amount);
+            clear();
         } catch (IDException | DebitException e ) {
             alert1(e);
         } catch (NumberFormatException e) {
@@ -316,7 +319,7 @@ public class ControllerOperations implements Initializable {
             String id = wtLbIdentification.getText();
             String cause = acTextArea.getText();
             b.inactivateClient(id, cause);
-
+            clear();
         } catch (IDException e) {
             alert1(e);
         }
@@ -326,12 +329,17 @@ public class ControllerOperations implements Initializable {
     public void cardPayment() {
         try {
             Bank b = cm.getB();
-            String id = wtLbIdentification.getText();
+            String id = actualClient.getId();
             int cardId = Integer.parseInt(wtCbCards.getValue());
-            int debitId = Integer.parseInt(wtCbCards1.getValue());
+            int debitId = 0;
+            if (!wtCbCards1.getValue().equals(""))
+                 debitId = Integer.parseInt(wtCbCards1.getValue());
             long amount = Long.parseLong(wtTfAmount.getText());
             if (cpRbCard.isSelected()) {
-                b.payCardDebit(id, cardId, debitId, amount);
+                if (wtCbCards1.getValue().equals(""))
+                    alert2();
+                else
+                    b.payCardDebit(id, cardId, debitId, amount);
             }else if (cpRbCash.isSelected()){
                 b.payCardCash(id, cardId, amount);
             }
@@ -344,8 +352,8 @@ public class ControllerOperations implements Initializable {
 
     @SuppressWarnings({"unused", "RedundantSuppression"})
     public void toggle() {
-        wtCbCards.setDisable(!wtCbCards.isDisable());
-        wtCbCards.setValue("");
+        wtCbCards1.setDisable(!wtCbCards1.isDisable());
+        wtCbCards1.setValue("");
     }
 
     @SuppressWarnings({"unused", "RedundantSuppression"})
@@ -353,11 +361,9 @@ public class ControllerOperations implements Initializable {
         try {
             Bank b = cm.getB();
             b.undo(wtLbIdentification.getText());
-            goBack();
+            clear();
         } catch (IDException e) {
             alert1(e);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -388,16 +394,13 @@ public class ControllerOperations implements Initializable {
             }else if (ancCredit.isSelected()){
                 type = Card.CREDIT;
             }
-            long amount = Long.parseLong(ancAmount.getText());
             String divise = ancBadge.getText();
-            b.addCard(id, new Card(type, amount, true, idCard, divise));
-            goBack();
+            b.addCard(id, new Card(type, 0, false, idCard, divise));
+            clear();
         } catch (NumberFormatException e) {
             alert2();
         } catch (IDException e) {
             alert1(e);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

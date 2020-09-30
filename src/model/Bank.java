@@ -26,6 +26,8 @@ public class Bank {
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
         activeClients = new ArrayList<>();
+        ActiveClient ac = new ActiveClient("Juan", "1006", "301236541", "cll 23 # 102-123", true, false, 1, 20);
+        addClient(ac);
     }
     
     public void openABankAccount(String clientId, BankAccount newBA) throws IDException{
@@ -237,6 +239,15 @@ public class Bank {
             
             throw new IDException("ACTIVE CLIENT");
         }  
+    }
+
+    public String showDebitCards(String clientId) throws IDException {
+        ActiveClient aux = clients.search(clientId);
+        if (aux != null) {
+            return aux.showDebitCards();
+        }else{
+            throw new IDException("ACTIVE CLIENT");
+        }
     }
     
     public String showLineStatus(){
