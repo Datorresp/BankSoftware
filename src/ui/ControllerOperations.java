@@ -173,6 +173,7 @@ public class ControllerOperations implements Initializable {
         String id = tfAddId.getText();
         String phone = tfAddPhone.getText();
         String address = tfAddAddress.getText();
+        //pedir disable, pregnant, gender(constante) y age
 
         if (name.equals("") || id.equals("") || phone.equals("") || address.equals("")) {
             Alert a = new Alert(Alert.AlertType.WARNING);
@@ -180,7 +181,7 @@ public class ControllerOperations implements Initializable {
             a.setContentText("Something is empty");
             a.showAndWait();
         }else {
-            b.addClient(new ActiveClient(name, id, phone, address));
+        //    b.addClient(new ActiveClient(name, id, phone, address, disabled, pregnant, gender, age));
             goBack();
         }
     }
