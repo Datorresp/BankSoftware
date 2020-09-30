@@ -168,11 +168,11 @@ public class BankAccount {
     
     public void withdraw(int cardId, long amount) throws IDException, insufficientFundsException, DebitException{
         
-        int i = findCard(cardId);
+        int i = findCard(cardId)-1;
         Card debit = null;
         
         try {
-
+         
             debit = cards.get(i);
             
         } catch (IndexOutOfBoundsException e) {
@@ -182,7 +182,7 @@ public class BankAccount {
         
         if (debit != null) {
             
-            if (debit.getType() == 2) {
+            if (debit.getType() == 1) {
                 
                 if (debit.getAmount() >= amount) {
                     

@@ -309,7 +309,7 @@ public class Bank {
         ActiveClient aux = clients.search(clientId);
         
         if (aux != null) {
-            
+                  
             aux.withdraw(cardId, amount);
         }else{
             
