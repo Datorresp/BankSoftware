@@ -265,4 +265,16 @@ public class BankAccount {
                         
         return i;
     }
+    
+    public long totalDebitMoney(){
+        
+        long total = 0;
+        
+        for (int i = 0; i < cards.size(); i++) {
+            
+            total = cards.get(i).totalDebitMoney();
+        }
+        
+        return total;
+    }
 }
