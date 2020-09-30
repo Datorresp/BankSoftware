@@ -25,6 +25,14 @@ public class ActiveClient extends Client implements Comparable<ActiveClient>{
     public void setAccount(BankAccount account) {
         this.account = account;
     }
+
+    public long getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(long totalMoney) {
+        this.totalMoney = totalMoney;
+    }   
     
     public void openABankAccount(BankAccount newBA){
         
@@ -34,12 +42,14 @@ public class ActiveClient extends Client implements Comparable<ActiveClient>{
     public void addToBackUp(){
         
         account.addToBackUp(account);
+        totalMoney = totalMoney();
     }
     
     public void undo(){
         
         BankAccount backUp = account.undo();
         account = backUp;
+        totalMoney = totalMoney();
     }
     
     public void addCard(Card newC){
@@ -50,26 +60,31 @@ public class ActiveClient extends Client implements Comparable<ActiveClient>{
     public void deleteCard(int cardId) throws IDException{
         
         account.deleteCard(cardId);
+        totalMoney = totalMoney();
     }
     
     public void payCardCash(int cardId, long amount) throws Exception,PayedException,IDException, PayException{
         
         account.payCardCash(cardId, amount);
+        totalMoney = totalMoney();
     }
     
     public void payCardDebit(int cardId, int cardDebitId, long amount) throws PayException,PayedException,IDException,insufficientFundsException,CreditException{
         
         account.payCardDebit(cardId, cardDebitId, amount);
+        totalMoney = totalMoney();
     }
     
     public void withdraw(int cardId, long amount) throws IDException, insufficientFundsException, DebitException{   
         
         account.withdraw(cardId, amount);
+        totalMoney = totalMoney();
     }
     
     public void deposit(int cardId, long amount) throws IDException, DebitException{
         
         account.deposit(cardId, amount);
+        totalMoney = totalMoney();
     }
 
     @Override
