@@ -17,10 +17,12 @@ public class BankAccount {
 
     private final ArrayList<Card> cards;
     private final Stack<BankAccount>backUp;
+    private long totalMoney;
 
     public BankAccount() {
         cards = new ArrayList<>();
         backUp = new Stack<>();
+        totalMoney=0;
     }
     
     public void addToBackUp(BankAccount newBA){
@@ -264,5 +266,17 @@ public class BankAccount {
         }
                         
         return i;
+    }
+    
+    public long totalDebitMoney(){
+        
+        long total = 0;
+        
+        for (int i = 0; i < cards.size(); i++) {
+            
+            total = cards.get(i).totalDebitMoney();
+        }
+        
+        return total;
     }
 }

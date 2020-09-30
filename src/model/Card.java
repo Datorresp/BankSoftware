@@ -65,5 +65,15 @@ public class Card {
     @Override
     public String toString() {
         return "Id Card: " + id + ", Amount: " + amount;
-    }              
+    }           
+    
+    public long totalDebitMoney(){
+        
+        if (type == 1) {
+            
+            return amount;
+        }
+        
+        return 0;
+    }
 }

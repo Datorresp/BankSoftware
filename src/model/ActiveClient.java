@@ -7,13 +7,15 @@ import exceptions.IDException;
 import exceptions.PayedException;
 import exceptions.insufficientFundsException;
 
-public class ActiveClient extends Client{
+public class ActiveClient extends Client implements Comparable<ActiveClient>{
 
     private BankAccount account;
+    private long totalMoney;
 
     public ActiveClient(String name, String id, String phone, String address) {
         super(name, id, phone, address);
         this.account = new BankAccount();
+        totalMoney = 0;
     }
 
     public BankAccount getAccount() {
@@ -84,5 +86,27 @@ public class ActiveClient extends Client{
         
         return account.showCards();
     }
+    
+    public long totalMoney(){
+        
+        return account.totalDebitMoney();
+    }
 
+    @Override
+    public int compareTo(ActiveClient o) {
+        return Integer.parseInt(this.getId())-Integer.parseInt(o.getId());
+    }
+    
+    public int compareToByName(ActiveClient o){
+        
+        return this.getName().compareTo(o.getName());
+    }
+    
+    public int compareToByPhone(ActiveClient o){
+        return this.getPhone().compareTo(o.getPhone());
+    }
+
+    public long compareToTotalMoney(ActiveClient o){
+        return this.totalMoney-o.totalMoney;
+    }
 }
