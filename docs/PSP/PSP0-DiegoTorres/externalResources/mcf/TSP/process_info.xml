@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-process-info
+        name="TSP(SM)"
+        fullName="TSP(SM)"
+        version=""
+        id="TSP">
+
+    
+
+        <phase name="Misc"
+               longName="Management and Miscellaneous"
+               type="MGMT"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead="t"
+               isPSP=""
+               />
+
+    
+
+        <phase name="Strategy"
+               longName="Launch and Strategy"
+               type="STRAT"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead="t"
+               isPSP=""
+               />
+
+    
+
+        <phase name="Planning"
+               longName="Planning"
+               type="PLAN"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead="t"
+               isPSP="t"
+               isProbeTarget="t"
+               />
+
+    
+
+        <phase name="Reqts"
+               longName="Requirements"
+               type="REQ"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Sys Test Plan"
+               longName="System Test Plan"
+               type="STP"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Reqts Review"
+               longName="Requirements Review"
+               type="REQINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Reqts Inspect"
+               longName="Requirements Inspection"
+               type="REQINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection="t"
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="HLD"
+               longName="High-Level Design"
+               type="HLD"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Int Test Plan"
+               longName="Integration Test Plan"
+               type="ITP"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="HLD Review"
+               longName="HLD Review"
+               type="HLDRINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="HLD Inspect"
+               longName="HLD Inspection"
+               type="HLDRINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection="t"
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Design"
+               longName="Detailed Design"
+               type="DLD"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Design Review"
+               longName="Detailed Design Review"
+               type="DLDR"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Test Devel"
+               longName="Test Development"
+               type="TD"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Design Inspect"
+               longName="Detailed Design Inspection"
+               type="DLDINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection="t"
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Code"
+               longName="Code"
+               type="CODE"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Code Review"
+               longName="Code Review"
+               type="CR"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Compile"
+               longName="Compile"
+               type="COMP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Code Inspect"
+               longName="Code Inspection"
+               type="CODEINSP"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal="t"
+               isInspection="t"
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Test"
+               longName="Unit Test"
+               type="UT"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Int Test"
+               longName="Build and Integration Test"
+               type="IT"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Sys Test"
+               longName="System Test"
+               type="ST"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Documentation"
+               longName="Documentation"
+               type="DOC"
+               isDevelopment="t"
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Accept Test"
+               longName="Acceptance Test"
+               type="AT"
+               isDevelopment=""
+               isAfterDevelopment="t"
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+        <phase name="Postmortem"
+               longName="Postmortem"
+               type="PM"
+               isDevelopment=""
+               isAfterDevelopment=""
+               isQuality=""
+               isAppraisal=""
+               isInspection=""
+               isFailure=""
+               isOverhead="t"
+               isPSP="t"
+               />
+
+    
+
+        <phase name="Product Life"
+               longName="Product Life"
+               type="PL"
+               isDevelopment=""
+               isAfterDevelopment="t"
+               isQuality="t"
+               isAppraisal=""
+               isInspection=""
+               isFailure="t"
+               isOverhead=""
+               isPSP=""
+               />
+
+    
+
+    <sizeMetric name="Text Pages"
+                    longName="Text Pages" />
+
+    <sizeMetric name="Req Pages"
+                    longName="Requirements Pages" />
+
+    <sizeMetric name="HLD Pages"
+                    longName="HLD Pages" />
+
+    
+
+    
+
+        <sizeMetric name="DLD Lines" longName="Detailed Design Lines" />
+
+    
+
+    <sizeMetric name="New &amp; Changed LOC" longName="LOC" />
+
+</custom-process-info>

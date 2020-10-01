@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<externalResources>
+  <importedDirectory origPath="./data/kfq39gz4" newPath="kfq39gz4" />
+  <mcfMetadata mcfID="TSP" mcfVersion="5.0.0.20181231000000" newPath="mcf/TSP" />
+</externalResources>

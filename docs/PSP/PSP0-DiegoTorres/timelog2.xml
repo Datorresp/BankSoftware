@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<timeLogEntries>
+  <time id="1" path="/Proyecto/Codificacion" start="@1600827077992" delta="31" flag="A" />
+  <time id="2" path="/Proyecto/Diseño" start="@1600828936138" delta="1" flag="A" />
+  <time id="3" path="/Proyecto/Diseño" start="@1600829000000" delta="181" flag="A" />
+  <time id="4" path="/Proyecto/Codificacion" start="@1600880108585" delta="19" flag="A" />
+  <time id="5" path="/Proyecto/Diseño" start="@1600881249674" delta="240" flag="A" />
+  <time id="6" flag="D" />
+  <time id="7" path="/Proyecto/Codificacion" start="@1601053188495" delta="430" flag="A" />
+  <time id="8" path="/Proyecto/Codificacion" start="@1601134884000" delta="40" flag="A" />
+  <time id="9" path="/Proyecto/Diseño" start="@1601137310110" delta="321" flag="A" />
+  <time id="10" path="/Proyecto/Codificacion" start="@1601320770019" delta="237" flag="A" />
+  <time id="11" path="/Proyecto/Codificacion" start="@1601345557737" delta="300" flag="A" />
+  <time id="12" path="/Proyecto/Codificacion" start="@1601414303032" delta="131" interrupt="427" flag="A" />
+  <time id="13" path="/Proyecto/Diseño" start="@1601482807374" delta="241" flag="A" />
+  <time id="14" path="/Proyecto/Diseño" start="@1601497302370" delta="14" flag="A" />
+  <time id="15" path="/Proyecto/Diseño" start="@1601507951493" delta="7" flag="A" />
+  <time id="16" path="/Proyecto/Codificacion" start="@1601508390545" delta="22" flag="A" />
+  <time id="17" path="/Proyecto/Codificacion" start="@1601510893354" delta="22" flag="A" />
+  <time id="18" path="/Proyecto/Codificacion" start="@1601514866888" delta="1" flag="A" />
+</timeLogEntries>

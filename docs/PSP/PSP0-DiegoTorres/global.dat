@@ -1,0 +1,26 @@
+#include <dataFile.txt>
+Current_Exported_Filenames=="/Users/diegoa.torres/Library/Process Dashboard/data/data/kfq39gz4/me-data.pdash
+Historically_Exported_Filenames=="/Users/diegoa.torres/Library/Process Dashboard/data/data/kfq39gz4/me-data.pdash
+No Proyecto/Defect Type Standard="Generic
+No Proyecto/Time==0.0
+No Proyecto/leaf==TAG
+No Proyecto/node==TAG
+Owner="DiegoTorres
+Proyecto/Codificacion/Started=@1600827077992
+Proyecto/Codificacion/Team_Note="<note timestamp='@1601482960455' format='text'>Problemas con GIT HUB, y problemas internos de grupo\n\nCodificacion del modelo\nClase Card, BankAccount\nClase ActiveClient\nClase InactiveClient\nUndo\nClase Bank\nMergeSort\nBubbleSort\nSort\nImplementacioon funcionales de las estructuras del model\nFinalizacion de clase Bank principal\nFinalizacion De Code</note>
+Proyecto/Codificacion/Time==1233.0
+Proyecto/Codificacion/leaf==TAG
+Proyecto/Codificacion/node==TAG
+Proyecto/Diseño/Completed/Edit_Timestamp=@1601512811260
+Proyecto/Diseño/Started=@1600828936138
+Proyecto/Diseño/Team_Note="<note timestamp='@1601497276906' format='text'>Toca cambiar el Diagrama de Clases\nrealizacion de RF\nRealizacion de Casos de Pruebas\nDiagrama de clases pruebas\nCasos de Prueba\nRealizacion de TAD\nDiseño de Pruebas</note>
+Proyecto/Diseño/Time==1005.0
+Proyecto/Diseño/leaf==TAG
+Proyecto/Diseño/node==TAG
+Proyecto/Started=@1600827077992
+Proyecto/Team_Note="<note timestamp='@1601483005626' format='text'>[https:// TI1]\n[http:// Proyecto]</note>
+Proyecto/node==TAG
+Task-Schedule/BankSoftware/Planned Hours=="@1601182800000720.0@1601787600000
+Task-Schedule/BankSoftware/Schedule_Dates_Locked==1.0
+Task-Schedule/BankSoftware/Task List ID="uimvbd.kfq39itd
+Task-Schedule/BankSoftware/Task_List_Metadata="#task list metadata\n#Wed Sep 30 19:37:00 COT 2020\nProject_Schedule_Hours_Last_Synced_Val=,@1601182800000,720.0,@1601787600000,\nRezero_On_Start_Date=false\nTimezone=America/Bogota\nProject_Schedule_PDT_Last_Synced_Val=720.0\n
