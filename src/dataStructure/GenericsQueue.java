@@ -1,7 +1,7 @@
 package dataStructure;
 
 
-public class GenericsQueue<E> implements QueueInterface<E>{
+public class GenericsQueue<E> implements QueueInterface<E> {
 
     private Node<E> head;
     private Node<E> tail;
@@ -10,7 +10,7 @@ public class GenericsQueue<E> implements QueueInterface<E>{
     public GenericsQueue() {
         head = null;
         tail = null;
-        size  = 0;
+        size = 0;
     }
 
     public Node<E> getHead() {
@@ -39,63 +39,60 @@ public class GenericsQueue<E> implements QueueInterface<E>{
 
     @Override
     public void offer(E newE) {
-             
-        Node<E> newNode = new Node<>(newE);
-        
-        if (tail != null) {
 
-            tail.setNext(newNode);
-            newNode.setPrev(tail);
-            
-        }else{
-            
-            head = newNode;
-            tail = newNode;
+        Node<E> newNode = new Node<>(newE);
+
+        Node<E> oldRear = tail;
+        tail = newNode;
+        if (isEmpty()) {
+            head = tail;
+        } else {
+            oldRear.setNext(tail);
         }
-        
         size++;
     }
 
     @Override
     public boolean isEmpty() {
-        
+
         return head == null;
     }
 
     @Override
     public E peek() {
-        
+
         if (head != null) {
-            
+
             return head.getType();
-        }else{
-            
+        } else {
+
             return null;
         }
     }
 
     @Override
     public E poll() {
-        
+
         E dev = null;
         if (head != null) {
-            
+
             dev = head.getType();
             head = head.getNext();
         }
+        size--;
         return dev;
     }
 
     @Override
     public void clear() {
-        
+
     }
 
     @Override
     public int size() {
-        
+
         return size;
     }
 
-    
+
 }
