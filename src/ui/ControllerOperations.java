@@ -272,10 +272,12 @@ public class ControllerOperations implements Initializable {
             } else {
                 b.addClient(new ActiveClient(name, id, phone, address, dis, preg, gender, age));
                 goBack();
-                System.out.println();
             }
+            b.addToBackUp(id);
         }catch (NumberFormatException e) {
             alert2();
+        } catch (IDException e) {
+            alert1(e);
         }
     }
 
@@ -288,6 +290,7 @@ public class ControllerOperations implements Initializable {
             int cardId = Integer.parseInt(wtCbCards.getValue());
             long amount = Long.parseLong(wtTfAmount.getText());
             b.withdraw(id, cardId, amount);
+            b.addToBackUp(id);
             clear();
         } catch (DebitException | insufficientFundsException | IDException e) {
            alert1(e);
@@ -304,6 +307,7 @@ public class ControllerOperations implements Initializable {
             int cardId = Integer.parseInt(wtCbCards.getValue());
             long amount = Long.parseLong(wtTfAmount.getText());
             b.deposit(id, cardId, amount);
+            b.addToBackUp(id);
             clear();
         } catch (IDException | DebitException e ) {
             alert1(e);
@@ -343,6 +347,7 @@ public class ControllerOperations implements Initializable {
             }else if (cpRbCash.isSelected()){
                 b.payCardCash(id, cardId, amount);
             }
+            b.addToBackUp(id);
         } catch (PayedException | IDException | insufficientFundsException | CreditException | PayException | NumberFormatException e) {
             alert1(e);
         } catch (Exception e) {
@@ -396,6 +401,7 @@ public class ControllerOperations implements Initializable {
             }
             String divise = ancBadge.getText();
             b.addCard(id, new Card(type, 0, false, idCard, divise));
+            b.addToBackUp(id);
             clear();
         } catch (NumberFormatException e) {
             alert2();

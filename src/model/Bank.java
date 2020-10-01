@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Bank {
    
-    private final GenericsQueue<ActiveClient>line;
+    private GenericsQueue<ActiveClient>line;
     private final HashTable <String, ActiveClient> clients;
     private final HashTable <String, InactiveClient> inactiveClients;
     private final Heap <Client> priority;
@@ -26,8 +26,12 @@ public class Bank {
         clients = new HashTable<>();
         inactiveClients = new HashTable<>();
         activeClients = new ArrayList<>();
-        ActiveClient ac = new ActiveClient("Juan", "1006", "301236541", "cll 23 # 102-123", true, false, 1, 20);
+        ActiveClient ac = new ActiveClient("Juan", "1006", "301236541", "cll 23 # 102-123", false, false, 1, 20);
+        ActiveClient ac1 = new ActiveClient("Diego", "1008", "301285411", "cll 10 # 10-13", false, false, 1, 23);
+        ActiveClient ac2 = new ActiveClient("Isa", "1009", "306576541", "cll 26 # 112-323", false, false, 2, 20);
         addClient(ac);
+        addClient(ac1);
+        addClient(ac2);
     }
     
     public void openABankAccount(String clientId, BankAccount newBA) throws IDException{
@@ -366,5 +370,20 @@ public class Bank {
     public String showLineStatus(){
         
         return "NORMAL LINE HAS " + line.size() + "AND THE NEXT USER IS: " + line.peek().toString();
+    }
+
+    public String showLine() {
+        String ret = "";
+        GenericsQueue<ActiveClient> save = new GenericsQueue<>();
+        ActiveClient ac = line.peek();
+        line.poll();
+        while (ac != null) {
+            ret += ac.getId() +" "+ ac.getName()+";";
+            save.offer(ac);
+            ac = line.peek();
+            line.poll();
+        }
+        line = save;
+        return ret;
     }
 }
