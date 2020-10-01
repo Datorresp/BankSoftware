@@ -50,7 +50,7 @@ public class GenericsQueue<E> implements QueueInterface<E>{
         }else{
             
             head = newNode;
-            tail = newNode;
+            tail = newNode  ;
         }
         
         size++;
